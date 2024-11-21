@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Bored</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <h2>Let's find somthing for you to do ✌</h2>
+  <form action="/post" method="POST">
+    <select name="type" id="type">
+      <option value="random" selected>Random type</option>
+      <option value="education">Education</option>
+      <option value="charity">Charity</option>
+      <option value="recreational">Recreational</option>
+      <option value="relaxation">Relaxation</option>
+      <option value="busywork">Busywork</option>
+      <option value="social">Social</option>
+      <option value="diy">DIY</option>
+      <option value="music">Music</option>
+    </select>
+    <select name="participants" id="participants">
+      <option value="random" selected>Any number</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <input type="submit" value="Go">
+  </form>
+  <div id="output">
+    <h3>Sit in the dark and listen to your favorite music with no destractions.</h3>
+    <div class="inner-div">
+      <p>relaxation</p>
+      <p>participants: <span>2</span></p>
+    </div>
+  </div>
+</body>
+</html>

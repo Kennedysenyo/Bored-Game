@@ -1,0 +1,69 @@
+body {
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h2,
+form,
+#output {
+  width: 400px;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+form {
+  display: grid;
+  grid-template: 1fr/ 2fr 2fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form *,
+#output {
+  border: 1px solid #a2a1a1;
+  border-radius: 5px;
+}
+
+form > * {
+  padding: 5px 0;
+}
+
+form input {
+  background-color: white;
+}
+
+#output {
+  display: grid;
+  grid-template: 3fr 1fr/ 1fr 1fr;
+ 
+}
+
+.inner-div,
+h3 {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  padding: 0 10px;
+}
+
+.inner-div {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.inner-div p {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+

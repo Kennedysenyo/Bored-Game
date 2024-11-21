@@ -8,7 +8,7 @@
 </head>
 <body>
   <h2>Let's find somthing for you to do ✌</h2>
-  <form action="/post" method="POST">
+  <form action="/search" method="POST">
     <select name="type" id="type">
       <option value="random" selected>Random type</option>
       <option value="education">Education</option>
@@ -29,12 +29,22 @@
     </select>
     <input type="submit" value="Go">
   </form>
+
   <div id="output">
-    <h3>Sit in the dark and listen to your favorite music with no destractions.</h3>
+    <% if (locals.reponse) {%> 
+    <h3><%= response.activity %></h3>
     <div class="inner-div">
-      <p>relaxation</p>
-      <p>participants: <span>2</span></p>
+      <p><%= response.type %></p>
+      <p>participants: <span><%= response.participants %></span></p>
     </div>
+    <%} else if (locals.activity) {%>
+      <h3 style="color: red;"><%= response.act %></h3>
+      <div class="inner-div">
+        <p></p>
+        <p><span></span></p>
+      </div>
+    <%}%>
   </div>
+    
 </body>
 </html>

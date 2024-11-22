@@ -67,3 +67,26 @@ h3 {
   padding: 10px;
 }
 
+@media (max-width: 250px) {
+  .inner-div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 510px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2,
+  form,
+  #output {
+    width: 90%;
+  }
+}
+
+
+
+

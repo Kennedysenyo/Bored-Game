@@ -36,6 +36,7 @@ form > * {
 
 form input {
   background-color: white;
+  cursor: pointer;
 }
 
 #output {
@@ -84,6 +85,14 @@ h3 {
   form,
   #output {
     width: 90%;
+  }
+
+  form > * {
+    padding: 15px 0;
+  }
+
+  h2 {
+    font-size: 2rem;
   }
 }
 

@@ -27,16 +27,15 @@ app.get("/", async (req, res) => {
   }
 });
 
+
 app.post("/search", async (req, res) => {
   const type = req.body.type;
   const participants = req.body.participants;
-  let statusCode = "";
 
   if (type === "random" && participants == "random") {
     try {
       const response = await axios.get(`${url}/random`);
       const result = response.data;
-      statusCode = response.status;
 
       res.render("index.ejs", {
         response: result,
@@ -45,7 +44,7 @@ app.post("/search", async (req, res) => {
     } catch(error) {
       console.error("Fialed to make request:", error.message);
 
-      if (statusCode === 429) {
+      if (error.status > 404) {
         res.render("index.ejs", {
           error: "Ooops! Server down, refresh.",
         });
@@ -60,7 +59,6 @@ app.post("/search", async (req, res) => {
     try {
       const response = await axios.get(`${url}/filter?type=${type}`);
       const result = response.data;
-      statusCode = response.status;
 
       res.render("index.ejs", {
         response: result[Math.floor(Math.random() * result.length)],
@@ -68,7 +66,7 @@ app.post("/search", async (req, res) => {
     } catch (error) {
       console.error("Fialed to make request:", error.message);
 
-      if (statusCode === 429) {
+      if (error.status > 404) {
         res.render("index.ejs", {
           error: "Ooops! Server down, refresh.",
         });
@@ -83,15 +81,14 @@ app.post("/search", async (req, res) => {
     try {
       const response = await axios.get(`${url}/filter?participants=${participants}`);
       const result = response.data;
-      statusCode = response.status;
-
+      
       res.render("index.ejs", {
         response: result[Math.floor(Math.random() * result.length)],
       });
     } catch (error) {
       console.error("Fialed to make request:", error.message);
 
-      if (statusCode === 429) {
+      if (error.status > 404) {
         res.render("index.ejs", {
           error: "Ooops! Server down, refresh.",
         });
@@ -102,12 +99,11 @@ app.post("/search", async (req, res) => {
       }
     }
   }
-  else {
+  else { 
 
     try {
       const response = await axios.get(`${url}/filter?type=${type}&participants=${participants}`);
       const result = response.data;
-      statusCode = response.status;
 
       res.render("index.ejs", {
         response: result[Math.floor(Math.random() * result.length)],
@@ -116,7 +112,7 @@ app.post("/search", async (req, res) => {
     } catch (error) {
       console.error("Fialed to make request:", error.message);
 
-      if (statusCode === 429) {
+      if (error.status > 404) {
         res.render("index.ejs", {
           error: "Ooops! Server down, refresh.",
         });

@@ -70,7 +70,7 @@ h3 {
 @media (max-width: 250px) {
   .inner-div {
     flex-direction: column;
-    justify-content: center;
+
   }
 }
 
